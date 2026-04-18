@@ -8,15 +8,15 @@
 
 ## Critérios de Aceitação
 
-- [x] O endpoint `POST /v1/equation/solve` deve aceitar o corpo:
+- [ ] O endpoint `POST /v1/equation/solve` deve aceitar o corpo:
       `{ "equation": "2*x + 5 = 15", "showSteps": true }`
-- [x] A resposta deve conter `result` e, se `showSteps: true`, o array `steps`
+- [ ] A resposta deve conter `result` e, se `showSteps: true`, o array `steps`
       com `rule`, `before` e `after` em cada passo
 - [ ] O endpoint deve suportar equações **lineares**, **quadráticas** e
       **sistemas de equações**
-- [x] Se a equação for inválida, retornar `400 Bad Request` com mensagem descritiva
+- [ ] Se a equação for inválida, retornar `400 Bad Request` com mensagem descritiva
 - [ ] Se o tipo de equação não for suportado, retornar `422 Unprocessable Entity`
-- [x] A requisição deve ser **idempotente**: a mesma equação enviada múltiplas
+- [ ] A requisição deve ser **idempotente**: a mesma equação enviada múltiplas
       vezes deve retornar sempre o mesmo resultado sem efeitos colaterais
       (a persistência é responsabilidade de outra task)
 - [ ] O endpoint deve respeitar um **token de cancelamento**: se o cliente
