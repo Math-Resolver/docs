@@ -4,12 +4,15 @@
 
 Integrantes:
 
-- Nome Completo — RA: XXXXXXX
-- Nome Completo — RA: XXXXXXX
-- Nome Completo — RA: XXXXXXX
-- Nome Completo — RA: XXXXXXX
-- Nome Completo — RA: XXXXXXX
-- Nome Completo — RA: XXXXXXX
+- Matheus Caldana Ferreira Bernardo Terzini — RA: 924106937
+- Domingos Lobito Capewa — RA: 924120184
+- Juliana Vieira Santos — RA: 924118221
+- Richard Ryan dos Santos Camargo — RA: 924100027
+- Wagner Sousa de Araujo — RA: 923210738
+- Arthur Aguiar Costa — RA: 924106342
+- Luiz Gustavo Brasil de Assis — RA: 926117718
+- Vinícius Viana de Aguiar — RA: 924114067
+- Vinicius Ventura Ribeiro — RA: 
 - Nome Completo — RA: XXXXXXX
 
 ### Definição do problema e modelo de negócio
