@@ -15,6 +15,7 @@
 - Luiz Gustavo Brasil de Assis - RA: 926117718
 - Vinícius Viana de Aguiar - RA: 924114067
 - Vinicius Ventura Ribeiro - RA: 924105577
+- Renê Julian de Moraes Cerqueira - RA: 924103716
 - Gilvanete Ferreira de Souza - RA: 1424109883
 
 ## 2. Definição do Problema e Modelo de Negócio
