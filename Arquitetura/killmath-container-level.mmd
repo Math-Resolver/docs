@@ -5,8 +5,8 @@
     Container_Boundary(c2, "Nível C2") {
         Container(mobile_app, "Aplicativo Mobile", "Dart, Flutter", "Provê todas as funcionalidades do killmath para o cliente através do dispositivo móvel dele.")
         Container(backend_api, "Aplicação API", "Python, FastAPI, Docker Container", "Provê todas as funcionalidades do killmath via API")
-        ContainerDb(cache, "Cache", "Redis", "Sessões de cache e consultas frequentes")
-        ContainerDb(databaseB, "Banco de Dados Não Relacional ", "Mongo DB Database", "Persiste logs e informações adicionais de requisição e resposta para observabilidade")
+        ContainerDb(cache, "Cache", "Redis", "Sessões de cache, consultas frequentes e respostas da IA")
+        ContainerDb(databaseB, "Banco de Dados Não Relacional ", "Mongo DB Database", "Persiste logs e telemetria")
         ContainerDb(database, "Banco de Dados Relacional", "PostgreSQL Database", "Persiste histórico de equações e conversa com IA, usuários, challenges(Passkey), RefreshTokense tópicos matemáticos disponiveis")
     }
 

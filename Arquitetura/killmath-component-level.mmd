@@ -1,27 +1,55 @@
-    C4Container
-    title Killmath Arquitetura C4 Nivel Component (C3) 
-    Person(customer, Usuário, "Um cliente interessado em aprender sobre um tema matemático.")
+    C4Component
+    title Killmath Arquitetura C4 Nivel Component (C3)
 
-    Container_Boundary(c3, "Nível C3") {
-        Container(mobile_app, "Aplicativo Mobile", "Dart, Flutter", "Provê todas as funcionalidades do killmath para o cliente através do dispositivo móvel dele.")
-        Container(backend_api, "Aplicação API", "Python, FastAPI, Docker Container", "Provê todas as funcionalidades do killmath via API")
-        ContainerDb(cache, "Cache", "Redis", "Sessões de cache e consultas frequentes")
-        ContainerDb(databaseB, "Banco de Dados Não Relacional ", "Mongo DB Database", "Persiste logs e informações adicionais de requisição e resposta para observabilidade")
-        ContainerDb(database, "Banco de Dados Relacional", "PostgreSQL Database", "Persiste histórico de equações e conversa com IA, usuários, challenges(Passkey), RefreshTokense tópicos matemáticos disponiveis")
+    Container(mobile_app, "Aplicativo Mobile", "Dart, Flutter", "Provê todas as funcionalidades do killmath para o cliente através do dispositivo móvel dele.")
+    System_Ext(ai_adapter, "Gemini Developer API", "Modelo de IA generativa para apoio educacional.")
+    ContainerDb(database, "Banco de Dados Relacional", "PostgreSQL Database", "Usuários, histórico de resoluções, conversas, desafios e tópicos matemáticos")
+    ContainerDb(databaseB, "Banco de Dados Não Relacional ", "Mongo DB Database", "Logs, telemetria e auditoria da aplicação")
+    ContainerDb(cache, "Cache", "Redis", "Sessões de cache e consultas frequentes")
+
+    Container_Boundary(backend_api, "API Application") {
+        Component(equation_solver, "Componente Resolvedor de Equações", "Service", "Resolve equações matemáticas e registra o histórico das resoluções")
+        Component(authentication, "Componente Login e Cadastro", "Service", "Gerencia autenticação, autorização e cadastro de usuários")
+        Component(ai_chat_adapter, "Conversa com IA Adapter", "Service", "Intermedia a comunicação entre a plataforma e o Gemini")
     }
 
-    System_Ext(ai_adapter, "Gemini Developer API", "Modelo de IA generativa utilizado para apoio educacional.")
+    Rel(mobile_app, authentication, "Autentica usuário", "JSON/HTTPS")
+    Rel(mobile_app, equation_solver, "Solicita resolução de equações", "JSON/HTTPS")
+    Rel(mobile_app, ai_chat_adapter, "Envia um tópico matemático", "JSON/HTTPS")
 
-    Rel(customer, mobile_app, "Utiliza")
-    Rel(mobile_app, backend_api, "Utiliza API", "Async, JSON/HTTPS")
-    Rel(backend_api, ai_adapter , "Solicita explicações e resolução de problemas matemáticos", "Async, REST/JSON")
-    Rel(backend_api, database, "Lê de e escreve para", "sync, PostgreSQL")
-    Rel(backend_api, databaseB, "Lê de e escreve para", "sync, MongoDB")
-    Rel(backend_api, cache, "Lê de e escreve para", "sync, Redis")
+    Rel(equation_solver, database, "Persiste o resultado e os passos de resolução", "Sync")
+    Rel(equation_solver, cache, "Consulta e armazena o resultado e os passos de resolução", "Sync")
+    Rel(equation_solver, databaseB, "Registra logs e telemetria", "Sync")
+        
+    Rel(authentication, databaseB, "Registra eventos e auditoria", "Sync")
+    Rel(authentication, database, "Persiste usuários e credenciais", "Sync")
+    BiRel(authentication, ai_chat_adapter, "JWT Validation", "Sync")
+        
+    Rel(ai_chat_adapter, database, "Persiste o histórico de conversa", "Sync")
+    Rel(ai_chat_adapter, databaseB, "Registra logs e telemetria", "Sync")
+    Rel(ai_chat_adapter, cache, "Consulta e armazena as repostas da IA", "Sync")
+    Rel(ai_chat_adapter, ai_adapter, "Solicita respostas da IA", "Async/HTTP")
 
-    UpdateRelStyle(customer, mobile_app, $textColor="blue", $lineColor="blue", $offsetY="-30")
-    UpdateRelStyle(mobile_app, backend_api, $textColor="red", $lineColor="red", $offsetY="-30", $offsetX="-50")
-    UpdateRelStyle(backend_api, ai_adapter, $textColor="gray", $lineColor="gray", $offsetY="-30", $offsetX="20")
-    UpdateRelStyle(backend_api, database, $textColor="red", $lineColor="red", $offsetY="90", $offsetX="-40")
-    UpdateRelStyle(backend_api, databaseB, $textColor="red", $lineColor="red", $offsetY="-10", $offsetX="20")
-    UpdateRelStyle(backend_api, cache, $textColor="red", $lineColor="red", $offsetY="-20", $offsetX="-100")
+    UpdateLayoutConfig($c4ShapeInRow="3", $c4BoundaryInRow="2")
+
+    UpdateElementStyle(database, $fontColor="white", $bgColor="green", $borderColor="green")
+    UpdateElementStyle(databaseB, $fontColor="white", $bgColor="green", $borderColor="green")
+    UpdateElementStyle(cache, $fontColor="white", $bgColor="orange", $borderColor="orange")
+    UpdateElementStyle(ai_adapter, $fontColor="white", $bgColor="gray", $borderColor="gray")
+
+    UpdateRelStyle(mobile_app, ai_chat_adapter, $textColor="blue", $lineColor="blue", $offsetY="350", $offsetX="-10")
+    UpdateRelStyle(mobile_app, authentication, $textColor="blue", $lineColor="blue", $offsetY="260", $offsetX="70")
+    UpdateRelStyle(mobile_app, equation_solver, $textColor="blue", $lineColor="blue", $offsetY="265", $offsetX="0")
+    
+    UpdateRelStyle(equation_solver, database, $textColor="green", $lineColor="green", $offsetY="-130", $offsetX="0")
+    UpdateRelStyle(equation_solver, cache, $textColor="orange", $lineColor="orange", $offsetY="-70", $offsetX="-10")
+    UpdateRelStyle(equation_solver, databaseB, $textColor="green", $lineColor="green", $offsetY="-190", $offsetX="2")
+    
+    UpdateRelStyle(authentication, databaseB, $textColor="green", $lineColor="green", $offsetY="-170", $offsetX="1")
+    UpdateRelStyle(authentication, database, $textColor="green", $lineColor="green", $offsetY="-170", $offsetX="-130")
+    UpdateRelStyle(authentication, ai_chat_adapter, $textColor="blue", $lineColor="blue", $offsetX="70")
+    
+    UpdateRelStyle(ai_chat_adapter, database, $textColor="green", $lineColor="green", $offsetY="-280", $offsetX="-180")
+    UpdateRelStyle(ai_chat_adapter, databaseB, $textColor="green", $lineColor="green", $offsetY="-250", $offsetX="170")
+    UpdateRelStyle(ai_chat_adapter, cache, $textColor="orange", $lineColor="orange", $offsetY="-170", $offsetX="-250")
+    UpdateRelStyle(ai_chat_adapter, ai_adapter, $textColor="gray", $lineColor="gray", $offsetY="-390", $offsetX="280")
