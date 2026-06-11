@@ -1,0 +1,27 @@
+    C4Container
+    title Killmath Arquitetura C4 Nivel Component (C3) 
+    Person(customer, Usuário, "Um cliente interessado em aprender sobre um tema matemático.")
+
+    Container_Boundary(c3, "Nível C3") {
+        Container(mobile_app, "Aplicativo Mobile", "Dart, Flutter", "Provê todas as funcionalidades do killmath para o cliente através do dispositivo móvel dele.")
+        Container(backend_api, "Aplicação API", "Python, FastAPI, Docker Container", "Provê todas as funcionalidades do killmath via API")
+        ContainerDb(cache, "Cache", "Redis", "Sessões de cache e consultas frequentes")
+        ContainerDb(databaseB, "Banco de Dados Não Relacional ", "Mongo DB Database", "Persiste logs e informações adicionais de requisição e resposta para observabilidade")
+        ContainerDb(database, "Banco de Dados Relacional", "PostgreSQL Database", "Persiste histórico de equações e conversa com IA, usuários, challenges(Passkey), RefreshTokense tópicos matemáticos disponiveis")
+    }
+
+    System_Ext(ai_adapter, "Gemini Developer API", "Modelo de IA generativa utilizado para apoio educacional.")
+
+    Rel(customer, mobile_app, "Utiliza")
+    Rel(mobile_app, backend_api, "Utiliza API", "Async, JSON/HTTPS")
+    Rel(backend_api, ai_adapter , "Solicita explicações e resolução de problemas matemáticos", "Async, REST/JSON")
+    Rel(backend_api, database, "Lê de e escreve para", "sync, PostgreSQL")
+    Rel(backend_api, databaseB, "Lê de e escreve para", "sync, MongoDB")
+    Rel(backend_api, cache, "Lê de e escreve para", "sync, Redis")
+
+    UpdateRelStyle(customer, mobile_app, $textColor="blue", $lineColor="blue", $offsetY="-30")
+    UpdateRelStyle(mobile_app, backend_api, $textColor="red", $lineColor="red", $offsetY="-30", $offsetX="-50")
+    UpdateRelStyle(backend_api, ai_adapter, $textColor="gray", $lineColor="gray", $offsetY="-30", $offsetX="20")
+    UpdateRelStyle(backend_api, database, $textColor="red", $lineColor="red", $offsetY="90", $offsetX="-40")
+    UpdateRelStyle(backend_api, databaseB, $textColor="red", $lineColor="red", $offsetY="-10", $offsetX="20")
+    UpdateRelStyle(backend_api, cache, $textColor="red", $lineColor="red", $offsetY="-20", $offsetX="-100")

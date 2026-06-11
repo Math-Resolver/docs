@@ -1,0 +1,14 @@
+  C4Context 
+  title Killmath Arquitetura C4 Nivel Context (C1) 
+  
+  Enterprise_Boundary(c1, "Nível C1") { 
+    Person(customer, "Usuário", "Um cliente autenticado interessado em aprender sobre um tema matemático.") 
+    System(kill_math_system, "KillMath Sistema", "Plataforma de aprendizado de matemática com IA, resolução de equações e autenticação via Passkey.") 
+    System_Ext(ai_adapter, "Gemini Developer API", "Modelo de IA generativa utilizado para apoio educacional.") 
+  } 
+      
+  BiRel(customer, kill_math_system, "Utiliza") 
+  BiRel(kill_math_system, ai_adapter, "Solicita explicações e resolução de problemas matemáticos") 
+
+  UpdateRelStyle(customer, kill_math_system, $textColor="blue", $lineColor="blue", $offsetX="10", $offsetY="-10")
+  UpdateRelStyle(kill_math_system, ai_adapter, $textColor="gray", $lineColor="gray", $offsetX="30")
