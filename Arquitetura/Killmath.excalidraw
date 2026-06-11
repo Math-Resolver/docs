@@ -8172,8 +8172,8 @@
     {
       "id": "uFj91fiCyevP-YzYhAXqp",
       "type": "text",
-      "x": 4655.976100886082,
-      "y": 892.6630417007952,
+      "x": 4676.828762018895,
+      "y": 887.7161422867327,
       "width": 438.73974609375,
       "height": 500,
       "angle": 0,
@@ -8189,11 +8189,11 @@
       "index": "b3n",
       "roundness": null,
       "seed": 695930761,
-      "version": 346,
-      "versionNonce": 1875220329,
+      "version": 391,
+      "versionNonce": 1357034524,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1773882045651,
+      "updated": 1781220351812,
       "link": null,
       "locked": false,
       "text": "Collection EquationHistory\n{\n    username: \"user@email\",\n    equation: \"2*x + 5 = 15\"\n    Result: \"x=5\",\n    Steps: \n        [\n            {\n              \"rule\": \"subtrair 5 dos dois lados\",\n              \"before\": \"2x + 5 = 15\",\n              \"after\": \"2x = 10\"\n            },\n            {\n              \"rule\": \"dividir por 2\",\n              \"before\": \"2x = 10\",\n              \"after\": \"x = 5\"\n            } \n        ],\n    \"createdAt\": today\n}",
@@ -8440,8 +8440,8 @@
     {
       "id": "4NVFOEMWNdzhuPVManatr",
       "type": "text",
-      "x": 2288.51909668146,
-      "y": 4251.289272824771,
+      "x": 2289.6789477556786,
+      "y": 4250.886929074771,
       "width": 441.3597106933594,
       "height": 225,
       "angle": 0,
@@ -8457,8 +8457,8 @@
       "index": "b3t",
       "roundness": null,
       "seed": 1138604455,
-      "version": 969,
-      "versionNonce": 1382288009,
+      "version": 970,
+      "versionNonce": 142170532,
       "isDeleted": false,
       "boundElements": [
         {
@@ -8466,7 +8466,7 @@
           "type": "arrow"
         }
       ],
-      "updated": 1773881980742,
+      "updated": 1781219212330,
       "link": null,
       "locked": false,
       "text": "Collection RefreshTokens\n{\n    \"token\": \"hashASDJAUSI...\",\n    \"id\": \"uuid-123\",\n    \"username\": \"user@email.com\",\n    \"isRevoked\": false\n    \"expirationDate\": 7 dias depois de gerado,\n    \"createdAt\": today\n}",
@@ -8484,7 +8484,7 @@
       "type": "arrow",
       "x": 1594.40112234281,
       "y": 4289.871528275683,
-      "width": 676.995838967561,
+      "width": 678.1556900417797,
       "height": 116.33924829421812,
       "angle": 0,
       "strokeColor": "#4dabf7",
@@ -8499,8 +8499,8 @@
       "index": "b3u",
       "roundness": null,
       "seed": 1324313159,
-      "version": 180,
-      "versionNonce": 276025705,
+      "version": 182,
+      "versionNonce": 228737188,
       "isDeleted": false,
       "boundElements": [
         {
@@ -8508,7 +8508,7 @@
           "id": "JbeF69vIGg4z1HzSKy5uG"
         }
       ],
-      "updated": 1773881980743,
+      "updated": 1781219212370,
       "link": null,
       "locked": false,
       "points": [
@@ -8534,11 +8534,11 @@
         ],
         [
           642.2896737802328,
-          37.12717512297604
+          36.72483137297604
         ],
         [
-          676.995838967561,
-          37.12717512297604
+          678.1556900417797,
+          36.72483137297604
         ]
       ],
       "lastCommittedPoint": null,
@@ -15543,7 +15543,7 @@
       "version": 101,
       "versionNonce": 103257403,
       "isDeleted": false,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1781118034409,
       "link": null,
       "locked": false,
@@ -15580,7 +15580,7 @@
       "version": 51,
       "versionNonce": 669339061,
       "isDeleted": false,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1781117813955,
       "link": null,
       "locked": false,
