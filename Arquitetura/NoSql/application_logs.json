@@ -1,0 +1,27 @@
+{
+  "_id": "ObjectId",
+  "timestamp": "Date",
+  "request_id": "String",
+  "trace_id": "String",
+  "method": "String",
+  "path": "String",
+  "status_code": "Number",
+  "duration_ms": "Number",
+  "user": {
+    "id": "String",
+    "created_at": "Date"
+  },
+  "external_api": {
+    "context": "String",
+    "method": "String",
+    "timestamp": "Date",
+    "request_id": "String",
+    "trace_id": "String"
+  },
+  "error": {
+    "type": "String",
+    "code": "String",
+    "message": "String",
+    "retriable": "Boolean"
+  }
+}
